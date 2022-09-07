@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+
+
+
+body {
+  background-color: #82869D;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#logo {
+  width: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main--content {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  background-color: #F6F7FC;
+  border-radius: 30px;
+  height: 50vh;
+  width: 40vw;
+}
+
+.content--result {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items:flex-end;
+  /* background-color: red; */
+  color: #505050;
+  width: 100%;
+  height: 50%;
 }
 
-.App-link {
-  color: #61dafb;
+.content--result > h1,h2 {
+  margin-right: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content--result > h1 {
+  font-size: 50px;
 }
+
+.content--result > h2 {
+  font-size: 25px;
+}
+
+.content--numbers {
+  display: grid;
+  grid-template-columns: repeat(4,0.5fr);
+  /* grid-template-rows: repeat(1,0.9fr); */
+  align-items:flex-end;
+  width: 100%;
+  height: 50%;
+  padding-left: 5%;
+  padding-bottom: 5%;
+}
+
+/* .css-y3cxvd-MuiButtonBase-root-MuiButton-root:hover */
+/* .css-y3cxvd-MuiButtonBase-root-MuiButton-root::-moz-focus-inner */
+/* .css-y3cxvd-MuiButtonBase-root-MuiButton-root::-moz-focus-inner */
