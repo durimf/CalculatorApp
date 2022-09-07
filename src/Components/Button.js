@@ -6,56 +6,27 @@ import BackspaceOutlinedIcon from '@mui/icons-material/BackspaceOutlined'
 
 export default function Buttons(props) {
   const buttons = () => {
-    if (
-      props.id === 1 ||
-      props.id === 2 ||
-      props.id === 3 ||
-      props.id === 4 ||
-      props.id === 8 ||
-      props.id === 12 ||
-      props.id === 16 ||
-      props.id === 20
-    ) {
-      return (
-        <Button
-          onClick={props.handleClick}
-          variant="contained"
-          size="large"
-          sx={{
-            fontSize: 25,
-            height: 50,
-            width: 180,
-            borderRadius: '10px',
-            padding: 0,
-            margin: 0,
-            boxShadow: 'rgba(0, 0, 0, 0.18) 0px 2px 4px',
-            backgroundColor: '#93A3F3',
-          }}
-        >
-          {props.value}
-        </Button>
-      )
-    } else {
-      return (
-        <Button
-          onClick={() => props.handleClick(props.value)}
-          className="buttonOnHover"
-          variant="contained"
-          size="large"
-          sx={{
-            fontSize: 25,
-            height: 50,
-            width: 180,
-            borderRadius: '10px',
-            padding: 0,
-            margin: 0,
-            boxShadow: 'rgba(0, 0, 0, 0.18) 0px 2px 4px',
-          }}
-        >
-          {props.value}
-        </Button>
-      )
-    }
+    return (
+      <Button
+        onClick={(event) =>
+          props.handleClick(props.id, props.value, props.type, event)
+        }
+        variant="contained"
+        size="large"
+        sx={{
+          fontSize: 25,
+          height: 50,
+          width: 180,
+          borderRadius: '10px',
+          padding: 0,
+          margin: 0,
+          boxShadow: 'rgba(0, 0, 0, 0.18) 0px 2px 4px',
+          backgroundColor: '#93A3F3',
+        }}
+      >
+        {props.value}
+      </Button>
+    )
   }
 
   let isTrue = false
@@ -71,21 +42,7 @@ export default function Buttons(props) {
     <ThemeProvider theme={theme}>
       <Stack spacing={2} direction="row">
         {buttons()}
-        {/* <Button
-          className="buttonOnHover"
-          variant="contained"
-          size="large"
-          sx={{
-            height: 50,
-            width: 200,
-            borderRadius: '10px',
-            padding: 0,
-            margin: 0,
-            boxShadow: 'rgba(0, 0, 0, 0.18) 0px 2px 4px',
-          }}
-        >
-          {props.value}
-        </Button> */}
+        <Button />
       </Stack>
     </ThemeProvider>
   )

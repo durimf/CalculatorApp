@@ -12,103 +12,138 @@ import {
 import CircleIcon from '@mui/icons-material/Circle'
 
 export default [
+  // {
+  //   id: 1,
+  //   type: '1',
+  //   value: <FontAwesomeIcon icon={faC} />,
+  // },
   {
     id: 1,
-    value: <FontAwesomeIcon icon={faC} />,
+    type: 'number',
+    value: 1,
   },
   {
     id: 2,
-    value: '( )',
+    type: 'number',
+    value: 2,
   },
   {
     id: 3,
-    value: '%',
+    type: 'equals',
+    value: '=',
   },
-
   {
     id: 4,
-    value: <FontAwesomeIcon icon={faDeleteLeft} />,
+    type: 'c',
+    value: 'C',
   },
+  // {
+  //   id: 3,
+  //   type: 'symbol',
+  //   value: '%',
+  // },
 
-  {
-    id: 5,
-    value: '7',
-  },
+  // {
+  //   id: 4,
+  //   type: 'symbol',
+  //   value: <FontAwesomeIcon icon={faDeleteLeft} />,
+  // },
 
-  {
-    id: 6,
-    value: '8',
-  },
+  // {
+  //   id: 5,
+  //   value: '7',
+  // },
 
-  {
-    id: 7,
-    value: '9',
-  },
+  // {
+  //   id: 6,
+  //   value: '8',
+  // },
 
-  {
-    id: 8,
-    value: <FontAwesomeIcon icon={faX} />,
-  },
+  // {
+  //   id: 7,
+  //   value: '9',
+  // },
 
-  {
-    id: 9,
-    value: '4',
-  },
+  // {
+  //   id: 8,
+  //   type: 'symbol',
+  //   value: <FontAwesomeIcon icon={faX} />,
+  // },
 
-  {
-    id: 10,
-    value: '5',
-  },
+  // {
+  //   id: 9,
+  //   type: 'number',
+  //   value: '4',
+  // },
 
-  {
-    id: 11,
-    value: '6',
-  },
+  // {
+  //   id: 10,
+  //   type: 'number',
+  //   value: '5',
+  // },
 
-  {
-    id: 12,
-    value: <FontAwesomeIcon icon={faMinus} />,
-  },
+  // {
+  //   id: 11,
+  //   type: 'number',
+  //   value: '6',
+  // },
 
-  {
-    id: 13,
-    value: '1',
-  },
+  // {
+  //   id: 12,
+  //   name: 'minus',
+  //   type: 'synbol',
+  //   value: <FontAwesomeIcon icon={faMinus} />,
+  // },
 
-  {
-    id: 14,
-    value: '2',
-  },
+  // {
+  //   id: 13,
+  //   type: 'number',
+  //   value: '1',
+  // },
 
-  {
-    id: 15,
-    value: '3',
-  },
+  // {
+  //   id: 14,
+  //   type: 'number',
+  //   value: '2',
+  // },
+
+  // {
+  //   id: 15,
+  //   type: 'number',
+  //   value: '3',
+  // },
+  // {
   {
     id: 16,
-    value: <FontAwesomeIcon icon={faPlus} />,
+    type: 'addition',
+    value: '+',
+    // <FontAwesomeIcon icon={faPlus} />,
   },
-  {
-    id: 17,
-    value: '0',
-  },
-  {
-    id: 18,
-    value: (
-      <CircleIcon
-        fontSize="small"
-        sx={{
-          height: 8,
-        }}
-      />
-    ),
-  },
-  {
-    id: 19,
-    value: <FontAwesomeIcon icon={faDivide} />,
-  },
-  {
-    id: 20,
-    value: <FontAwesomeIcon icon={faEquals} />,
-  },
+  // {
+  //   id: 17,
+  //   type: 'number',
+  //   value: '0',
+  // },
+  // {
+  //   id: 18,
+  //   name: 'symbol',
+  //   value: (
+  //     <CircleIcon
+  //       fontSize="small"
+  //       sx={{
+  //         height: 8,
+  //       }}
+  //     />
+  //   ),
+  // },
+  // {
+  //   id: 19,
+  //   name: 'symbol',
+  //   value: <FontAwesomeIcon icon={faDivide} />,
+  // },
+  // {
+  //   id: 20,
+  //   name: 'symbol',
+  //   value: <FontAwesomeIcon icon={faEquals} />,
+  // },
 ]

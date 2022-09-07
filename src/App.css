@@ -55,7 +55,7 @@ body {
 
 .content--numbers {
   display: grid;
-  grid-template-columns: repeat(4,0.5fr);
+  grid-template-columns: repeat(1,0.5fr);
   /* grid-template-rows: repeat(1,0.9fr); */
   align-items:flex-end;
   width: 100%;
