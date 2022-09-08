@@ -24,7 +24,7 @@ export default [
   },
   {
     id: 3,
-    type: 'symbol',
+    type: 'percentage',
     value: '%',
   },
 
@@ -112,15 +112,8 @@ export default [
   },
   {
     id: 18,
-    name: 'point',
-    value: (
-      <CircleIcon
-        fontSize="small"
-        sx={{
-          height: 8,
-        }}
-      />
-    ),
+    type: 'point',
+    value: '.',
   },
   {
     id: 19,

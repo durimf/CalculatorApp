@@ -16,6 +16,8 @@ function Main(props) {
     isSubtraction: false,
     isMultiply: false,
     isDivision: false,
+    hasPoint: false,
+    isPercentage: false,
   })
 
   const handleAddition = (num1, num2) => {
@@ -23,7 +25,8 @@ function Main(props) {
       ...prevState,
       isAddition: false,
     }))
-    let final = parseInt(num1) + parseInt(num2)
+    let final = parseFloat(num1) + parseFloat(num2)
+    console.log(final)
     setCurrentNumber(final)
   }
 
@@ -32,7 +35,7 @@ function Main(props) {
       ...prevState,
       isSubtraction: false,
     }))
-    let final = parseInt(num1) - parseInt(num2)
+    let final = parseFloat(num1) - parseFloat(num2)
     setCurrentNumber(final)
   }
 
@@ -41,17 +44,63 @@ function Main(props) {
       ...prevState,
       isMultiply: false,
     }))
-    let final = parseInt(num1) * parseInt(num2)
+    let final = parseFloat(num1) * parseFloat(num2)
     setCurrentNumber(final)
   }
 
   const handleDivision = (num1, num2) => {
     setMath((prevState) => ({
       ...prevState,
-      isMultiply: false,
+      isDivision: false,
     }))
-    let final = parseInt(num1) / parseInt(num2)
+    let final = parseFloat(num1) / parseFloat(num2)
     setCurrentNumber(final)
+  }
+
+  const handlePoint = (value) => {
+    setMath((prevState) => ({
+      ...prevState,
+      hasPoint: false,
+    }))
+    setCurrentNumber((prevState) => {
+      return [prevState, value]
+    })
+  }
+
+  const handlePercentage = () => {
+    // setMath({
+    //   isAddition: false,
+    //   isSubtraction: false,
+    //   isMultiply: false,
+    //   isDivision: false,
+    //   hasPoint: false,
+    //   isPercentage: false,
+    // })
+    console.log(currentMath)
+    let value1 = 0
+    let value2 = 0
+    if (result.length === 1) {
+      value1 = result
+    } else {
+      value1 = result.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+      )
+      console.log(`Value 1: ${value1}`)
+    }
+    if (currentNumbers.length === 1) {
+      value2 = currentNumbers[0]
+    } else {
+      value2 = currentNumbers.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+      )
+    }
+    console.log(`Value 2: ${value2}`)
+    if (result === null) {
+      setCurrentNumber([0])
+    } else {
+      let final = (parseInt(value1) / 100) * parseInt(value2)
+      setCurrentNumber([final])
+    }
   }
 
   const handleNumber = (value, e) => {
@@ -68,11 +117,12 @@ function Main(props) {
     let value1 = 0
     let value2 = 0
     if (result.length === 1) {
-      value1 = result[0]
+      value1 = result
     } else {
       value1 = result.reduce(
         (previousValue, currentValue) => previousValue + currentValue,
       )
+      console.log(value1)
     }
     if (currentNumbers.length === 1) {
       value2 = currentNumbers[0]
@@ -93,7 +143,7 @@ function Main(props) {
   }
 
   const handleClick = (id, value, type, e) => {
-    console.log(currentMath)
+    // console.log(currentMath)
     if (type === 'number') {
       handleNumber(value, e)
     } else if (type === 'addition') {
@@ -134,8 +184,20 @@ function Main(props) {
     } else if (type === 'c') {
       setCurrentNumber([0])
       setResult(null)
+    } else if (type === 'point') {
+      setMath((prevState) => ({
+        ...prevState,
+        hasPoint: true,
+      }))
+      handlePoint(value)
+    } else if (type === 'percentage') {
+      setMath((prevState) => ({
+        ...prevState,
+        isPercentage: true,
+      }))
+      handlePercentage()
     } else {
-      console.log('hi')
+      console.log('asd')
     }
   }
 
