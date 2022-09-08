@@ -19,13 +19,14 @@ export default [
   },
   {
     id: 2,
-    type: '()',
-    value: '()',
+    type: 'division',
+    value: <FontAwesomeIcon icon={faDivide} />,
   },
+
   {
     id: 3,
-    type: 'percentage',
-    value: '%',
+    type: 'multiply',
+    value: <FontAwesomeIcon icon={faX} />,
   },
 
   {
@@ -51,11 +52,10 @@ export default [
     type: 'number',
     value: '9',
   },
-
   {
     id: 8,
-    type: 'multiply',
-    value: <FontAwesomeIcon icon={faX} />,
+    type: 'minus',
+    value: <FontAwesomeIcon icon={faMinus} />,
   },
 
   {
@@ -78,8 +78,8 @@ export default [
 
   {
     id: 12,
-    type: 'minus',
-    value: <FontAwesomeIcon icon={faMinus} />,
+    type: 'addition',
+    value: <FontAwesomeIcon icon={faPlus} />,
   },
 
   {
@@ -99,27 +99,29 @@ export default [
     type: 'number',
     value: '3',
   },
-
   {
     id: 16,
-    type: 'addition',
-    value: <FontAwesomeIcon icon={faPlus} />,
+    type: 'point',
+    value: '.',
   },
+
   {
     id: 17,
     type: 'number',
     value: '0',
   },
+
   {
     id: 18,
-    type: 'point',
-    value: '.',
+    type: 'number',
+    value: '%',
   },
   {
     id: 19,
-    type: 'division',
-    value: <FontAwesomeIcon icon={faDivide} />,
+    type: 'number',
+    value: '()',
   },
+
   {
     id: 20,
     type: 'equals',

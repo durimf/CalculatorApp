@@ -27,7 +27,7 @@ body {
   background-color: #F6F7FC;
   border-radius: 30px;
   height: 50vh;
-  width: 100%;
+  width: 40%;
 }
 
 .content--result {
@@ -37,8 +37,8 @@ body {
   align-items:flex-end;
   /* background-color: red; */
   color: #505050;
+  height: 30vh;
   width: 100%;
-  height: 50%;
 }
 
 .content--result > h1,h2 {
@@ -46,8 +46,13 @@ body {
 }
 
 .content--result > h1 {
+  text-align: right;
   font-size: 50px;
+  background-color: #F6F7FC;
+  border: none;
+  color: #505050;
 }
+
 
 .content--result > h2 {
   font-size: 25px;
@@ -55,13 +60,20 @@ body {
 
 .content--numbers {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(4,1fr);
   /* grid-template-rows: repeat(1,0.9fr); */
   align-items:flex-end;
+  height: 70%;
   width: 100%;
-  height: 80%;
   padding-left: 5%;
   padding-bottom: 5%;
+}
+
+.footer {
+  display: flex;
+  align-items:flex-end;
+  height: 10vh;
+  margin-left: 10px
 }
 
 /* .css-y3cxvd-MuiButtonBase-root-MuiButton-root:hover */

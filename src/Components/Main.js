@@ -19,6 +19,7 @@ function Main(props) {
     hasPoint: false,
     isPercentage: false,
   })
+  const [currentSymbol, setcurrentSymbol] = useState(null)
 
   const handleAddition = (num1, num2) => {
     setMath((prevState) => ({
@@ -147,6 +148,7 @@ function Main(props) {
     if (type === 'number') {
       handleNumber(value, e)
     } else if (type === 'addition') {
+      setcurrentSymbol('+')
       setMath((prevState) => ({
         ...prevState,
         isAddition: true,
@@ -184,6 +186,7 @@ function Main(props) {
     } else if (type === 'c') {
       setCurrentNumber([0])
       setResult(null)
+      setcurrentSymbol('')
     } else if (type === 'point') {
       setMath((prevState) => ({
         ...prevState,
@@ -218,6 +221,7 @@ function Main(props) {
       <div className="main--content">
         <div className="content--result">
           <h2>{result}</h2>
+          <h2>{currentSymbol}</h2>
           <h1>{currentNumbers}</h1>
         </div>
         <div className="content--numbers">{buttons}</div>
