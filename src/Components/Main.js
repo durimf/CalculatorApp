@@ -1,4 +1,7 @@
-import { LocalConvenienceStoreOutlined } from '@mui/icons-material'
+import {
+  LocalConvenienceStoreOutlined,
+  ReviewsOutlined,
+} from '@mui/icons-material'
 import { elementAcceptingRef } from '@mui/utils'
 import { React, useState, useEffect } from 'react'
 import Button from './Button'
@@ -6,52 +9,133 @@ import Data from './Data'
 import Functions from './Functions'
 
 function Main(props) {
-  const handleClick = (id, value, type) => {
+  const [result, setResult] = useState(0)
+  const [currentNumbers, setCurrentNumber] = useState([0])
+  const [currentMath, setMath] = useState({
+    isAddition: false,
+    isSubtraction: false,
+    isMultiply: false,
+    isDivision: false,
+  })
+
+  const handleAddition = (num1, num2) => {
+    setMath((prevState) => ({
+      ...prevState,
+      isAddition: false,
+    }))
+    let final = parseInt(num1) + parseInt(num2)
+    setCurrentNumber(final)
+  }
+
+  const handleSubtraction = (num1, num2) => {
+    setMath((prevState) => ({
+      ...prevState,
+      isSubtraction: false,
+    }))
+    let final = parseInt(num1) - parseInt(num2)
+    setCurrentNumber(final)
+  }
+
+  const handleMultiply = (num1, num2) => {
+    setMath((prevState) => ({
+      ...prevState,
+      isMultiply: false,
+    }))
+    let final = parseInt(num1) * parseInt(num2)
+    setCurrentNumber(final)
+  }
+
+  const handleDivision = (num1, num2) => {
+    setMath((prevState) => ({
+      ...prevState,
+      isMultiply: false,
+    }))
+    let final = parseInt(num1) / parseInt(num2)
+    setCurrentNumber(final)
+  }
+
+  const handleNumber = (value, e) => {
+    if (currentNumbers[0] === 0) {
+      setCurrentNumber(value)
+    } else {
+      setCurrentNumber((prevState) => {
+        return [...prevState, value]
+      })
+    }
+  }
+
+  const handleEquals = (id, value, type) => {
+    let value1 = 0
+    let value2 = 0
+    if (result.length === 1) {
+      value1 = result[0]
+    } else {
+      value1 = result.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+      )
+    }
+    if (currentNumbers.length === 1) {
+      value2 = currentNumbers[0]
+    } else {
+      value2 = currentNumbers.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+      )
+    }
+    if (currentMath.isAddition) {
+      handleAddition(value1, value2)
+    } else if (currentMath.isSubtraction) {
+      handleSubtraction(value1, value2)
+    } else if (currentMath.isMultiply) {
+      handleMultiply(value1, value2)
+    } else if (currentMath.isDivision) {
+      handleDivision(value1, value2)
+    }
+  }
+
+  const handleClick = (id, value, type, e) => {
+    console.log(currentMath)
     if (type === 'number') {
-      let count = 1
-      if (count > 1) {
-        setCurrentNumber((prevState) => {
-          return [prevState, value]
-        })
-      } else {
-        setCurrentNumber(value)
-      }
-      count++
+      handleNumber(value, e)
     } else if (type === 'addition') {
-      let count2 = 0
-      if (count2 > 1) {
-        let num1 = parseInt(result)
-        console.log(num1)
-      } else {
-        setResult(currentNumbers + ' +')
-        setCurrentNumber((prevState) => {
-          return prevState
-        })
-      }
-      count2++
+      setMath((prevState) => ({
+        ...prevState,
+        isAddition: true,
+      }))
+      setResult(currentNumbers)
+      setCurrentNumber([0])
+    } else if (type === 'minus') {
+      setMath((prevState) => ({
+        ...prevState,
+        isSubtraction: true,
+      }))
+      setResult(currentNumbers)
+      setCurrentNumber([0])
+    } else if (type === 'multiply') {
+      setMath((prevState) => ({
+        ...prevState,
+        isMultiply: true,
+      }))
+      setResult(currentNumbers)
+      setCurrentNumber([0])
+    } else if (type === 'division') {
+      setMath((prevState) => ({
+        ...prevState,
+        isDivision: true,
+      }))
+      setResult(currentNumbers)
+      setCurrentNumber([0])
     } else if (type === 'equals') {
-      let num1 = parseInt(currentNumbers[1])
-      let num2 = parseInt(result[0])
-      setCurrentNumber(num1 + num2)
+      handleEquals(id, value, type)
+    } else if (type === 'delete') {
+      let newArr = currentNumbers.filter((element, index) => {
+        return index != currentNumbers.length - 1
+      })
+      setCurrentNumber(newArr)
     } else if (type === 'c') {
       setCurrentNumber([0])
-      setResult()
+      setResult(null)
     } else {
       console.log('hi')
-    }
-
-    const handleEquals = (value) => {
-      console.log(value)
-
-      // result.forEach((element) => {
-      //   if (element === '+') {
-      //     var indexToRemove = result.indexOf('+')
-      //     var arr1 = result.slice(0, indexToRemove)
-      //     var arr2 = result.slice(indexToRemove + 1)
-      //     var arr2 =
-      //     console.log(arr1.valueOf() + arr2.valueOf())
-      //   }
-      // })
     }
   }
 
@@ -66,9 +150,6 @@ function Main(props) {
     //   return <Button {...button} handleClick={handleClick} />
     // }
   })
-
-  const [result, setResult] = useState([0])
-  const [currentNumbers, setCurrentNumber] = useState([0])
 
   return (
     <div className="main">

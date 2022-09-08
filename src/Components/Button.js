@@ -19,7 +19,7 @@ export default function Buttons(props) {
           width: 180,
           borderRadius: '10px',
           padding: 0,
-          margin: 0,
+          margin: 1,
           boxShadow: 'rgba(0, 0, 0, 0.18) 0px 2px 4px',
           backgroundColor: '#93A3F3',
         }}
