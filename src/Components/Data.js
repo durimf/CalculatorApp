@@ -26,7 +26,7 @@ export default [
   {
     id: 3,
     type: 'multiply',
-    value: <FontAwesomeIcon icon={faX} />,
+    value: 'X',
   },
 
   {
@@ -55,7 +55,7 @@ export default [
   {
     id: 8,
     type: 'minus',
-    value: <FontAwesomeIcon icon={faMinus} />,
+    value: '-',
   },
 
   {
@@ -79,7 +79,7 @@ export default [
   {
     id: 12,
     type: 'addition',
-    value: <FontAwesomeIcon icon={faPlus} />,
+    value: '+',
   },
 
   {
@@ -125,6 +125,6 @@ export default [
   {
     id: 20,
     type: 'equals',
-    value: <FontAwesomeIcon icon={faEquals} />,
+    value: '=',
   },
 ]

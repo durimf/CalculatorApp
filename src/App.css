@@ -54,9 +54,9 @@ body {
 }
 
 
-.content--result > h2 {
+/* .content--result > h2 {
   font-size: 25px;
-}
+} */
 
 .content--numbers {
   display: grid;
@@ -76,6 +76,7 @@ body {
   margin-left: 10px
 }
 
-/* .css-y3cxvd-MuiButtonBase-root-MuiButton-root:hover */
-/* .css-y3cxvd-MuiButtonBase-root-MuiButton-root::-moz-focus-inner */
-/* .css-y3cxvd-MuiButtonBase-root-MuiButton-root::-moz-focus-inner */
+.prevNumbers {
+  font-size: 20px;
+  
+}
