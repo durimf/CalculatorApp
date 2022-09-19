@@ -1,13 +1,9 @@
+import { Box } from '@mui/material'
 import React from 'react'
-
-function Footer() {
-  const date = new Date()
-  const today = date.getFullYear()
+export const Footer = () => {
   return (
-    <div className="footer">
-      <p className="footer--desc">© {today} qwerty</p>
-    </div>
+    <Box bgcolor={'palette.background.default'} color={'text.primary'}>
+      <span>© all rights reserved. powered by DF. 2022</span>
+    </Box>
   )
 }
-
-export default Footer

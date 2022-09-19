@@ -22,7 +22,6 @@ export default [
     type: 'division',
     value: <FontAwesomeIcon icon={faDivide} />,
   },
-
   {
     id: 3,
     type: 'multiply',
@@ -33,6 +32,46 @@ export default [
     id: 4,
     type: 'delete',
     value: <FontAwesomeIcon icon={faDeleteLeft} />,
+  },
+  {
+    id: 13,
+    type: 'number',
+    value: '1',
+  },
+  {
+    id: 14,
+    type: 'number',
+    value: '2',
+  },
+  {
+    id: 15,
+    type: 'number',
+    value: '3',
+  },
+  {
+    id: 12,
+    type: 'addition',
+    value: '+',
+  },
+  {
+    id: 9,
+    type: 'number',
+    value: '4',
+  },
+  {
+    id: 10,
+    type: 'number',
+    value: '5',
+  },
+  {
+    id: 11,
+    type: 'number',
+    value: '6',
+  },
+  {
+    id: 8,
+    type: 'minus',
+    value: '-',
   },
 
   {
@@ -52,53 +91,7 @@ export default [
     type: 'number',
     value: '9',
   },
-  {
-    id: 8,
-    type: 'minus',
-    value: '-',
-  },
 
-  {
-    id: 9,
-    type: 'number',
-    value: '4',
-  },
-
-  {
-    id: 10,
-    type: 'number',
-    value: '5',
-  },
-
-  {
-    id: 11,
-    type: 'number',
-    value: '6',
-  },
-
-  {
-    id: 12,
-    type: 'addition',
-    value: '+',
-  },
-
-  {
-    id: 13,
-    type: 'number',
-    value: '1',
-  },
-
-  {
-    id: 14,
-    type: 'number',
-    value: '2',
-  },
-
-  {
-    id: 15,
-    type: 'number',
-    value: '3',
-  },
   {
     id: 16,
     type: 'point',
@@ -109,17 +102,6 @@ export default [
     id: 17,
     type: 'number',
     value: '0',
-  },
-
-  {
-    id: 18,
-    type: 'number',
-    value: '%',
-  },
-  {
-    id: 19,
-    type: 'number',
-    value: '()',
   },
 
   {

@@ -1,15 +1,11 @@
-import {
-  LocalConvenienceStoreOutlined,
-  ReviewsOutlined,
-} from '@mui/icons-material'
-import { elementAcceptingRef } from '@mui/utils'
+import { Card, Grid, Paper, TextField, Typography } from '@mui/material'
+import { Box, Container } from '@mui/system'
 import { React, useState, useEffect } from 'react'
-import Button from './Button'
+import Button from '../Components/Button'
 import Data from './Data'
-import Functions from './Functions'
 
 function Main(props) {
-  const [result, setResult] = useState(0)
+  const [result, setResult] = useState([0])
   const [currentNumbers, setCurrentNumber] = useState([0])
   const [prevNumbers, setPrevNumbers] = useState([0])
   const [currentMath, setMath] = useState({
@@ -19,64 +15,54 @@ function Main(props) {
     isDivision: false,
     hasPoint: false,
     isPercentage: false,
+    isEqual: false,
   })
 
   const handleAddition = (value) => {
-    setResult([currentNumbers])
+    setResult(currentNumbers)
     setMath((prevState) => ({
       ...prevState,
       isAddition: true,
     }))
-    setPrevNumbers([currentNumbers, ' ', value])
-
-    // let final = parseFloat(num1) + parseFloat(num2)
-    // console.log(final)
-    // setCurrentNumber(final)
-
-    // setMath((prevState) => ({
-    //   ...prevState,
-    //   isAddition: true,
-    // }))
-    // setPrevNumbers((prevState) => {
-    //   if (prevState[0] !== 0) {
-    //     return [prevState, currentNumbers, ' ', value, ' ']
-    //   } else {
-    //     return [currentNumbers, ' ', value, ' ']
-    //   }
-    // })
+    setPrevNumbers([currentNumbers, value])
+    setCurrentNumber([0])
   }
 
-  const handleSubtraction = (num1, num2) => {
+  const handleSubtraction = (value) => {
+    setResult(currentNumbers)
     setMath((prevState) => ({
       ...prevState,
-      isSubtraction: false,
+      isSubtraction: true,
     }))
-    let final = parseFloat(num1) - parseFloat(num2)
-    setCurrentNumber(final)
+    setPrevNumbers([currentNumbers, value])
+    setCurrentNumber([0])
   }
 
-  const handleMultiply = (num1, num2) => {
+  const handleMultiply = (value) => {
+    setResult(currentNumbers)
     setMath((prevState) => ({
       ...prevState,
-      isMultiply: false,
+      isMultiply: true,
     }))
-    let final = parseFloat(num1) * parseFloat(num2)
-    setCurrentNumber(final)
+    setPrevNumbers([currentNumbers, value])
+    setCurrentNumber([0])
   }
 
-  const handleDivision = (num1, num2) => {
+  const handleDivision = (value) => {
+    setResult(currentNumbers)
     setMath((prevState) => ({
       ...prevState,
-      isDivision: false,
+      isDivision: true,
     }))
-    let final = parseFloat(num1) / parseFloat(num2)
-    setCurrentNumber(final)
+    setPrevNumbers([currentNumbers, value])
+    setCurrentNumber([0])
   }
 
   const handlePoint = (value) => {
+    setResult(currentNumbers)
     setMath((prevState) => ({
       ...prevState,
-      hasPoint: false,
+      hasPoint: true,
     }))
     setCurrentNumber((prevState) => {
       return [prevState, value]
@@ -84,279 +70,149 @@ function Main(props) {
   }
 
   const handlePercentage = () => {
-    // setMath({
-    //   isAddition: false,
-    //   isSubtraction: false,
-    //   isMultiply: false,
-    //   isDivision: false,
-    //   hasPoint: false,
-    //   isPercentage: false,
-    // })
-    let value1 = 0
-    let value2 = 0
-    if (result.length === 1) {
-      value1 = result
+    let result1 = result
+    let current1 = currentNumbers
+
+    if (result1.length === 1) {
+      result1 = result
     } else {
-      value1 = result.reduce(
+      result1 = result1.reduce(
         (previousValue, currentValue) => previousValue + currentValue,
       )
     }
-    if (currentNumbers.length === 1) {
-      value2 = currentNumbers[0]
+    if (current1.length === 1) {
+      current1 = current1[0]
     } else {
-      value2 = currentNumbers.reduce(
+      current1 = current1.reduce(
         (previousValue, currentValue) => previousValue + currentValue,
       )
     }
-    if (result === null) {
-      setCurrentNumber([0])
-    } else {
-      let final = (parseInt(value1) / 100) * parseInt(value2)
-      setCurrentNumber([final])
-    }
+
+    let final = (result1 / 100) * current1
+    setCurrentNumber([final])
   }
 
   const handleNumber = (value, e) => {
-    currentNumbers[0] === 0
+    currentNumbers[0] === 0 || currentMath.isEqual
       ? setCurrentNumber(value)
       : setCurrentNumber((prevState) => {
           return [...prevState, value]
         })
-
-    currentNumbers.length === 2 &&
-      setCurrentNumber((prevState) => {
-        return [...prevState, ', ']
-      })
-    currentNumbers.length === 6 &&
-      setCurrentNumber((prevState) => {
-        return [...prevState, ', ']
-      })
-    currentNumbers.length === 10 &&
-      setCurrentNumber((prevState) => {
-        return [...prevState, ', ']
-      })
-    currentNumbers.length === 14 &&
-      setCurrentNumber((prevState) => {
-        return [...prevState, ', ']
-      })
-    currentNumbers.length === 18 &&
-      setCurrentNumber((prevState) => {
-        return [...prevState, ',']
-      })
-
-    let newArr = []
-    currentNumbers.length === 21 &&
-      currentNumbers.forEach((element) => {
-        newArr.unshift(element)
-      })
-
-    currentNumbers.length === 21 && setCurrentNumber(newArr)
-
-    // setCurrentNumber(newArr)
-
-    // if (currentNumbers[0] === 0) {
-    //   setCurrentNumber(value)
-    // } else if (
-    //   currentNumbers.length === 3 ||
-    //   currentNumbers.length === 7 ||
-    //   currentNumbers.length === 11 ||
-    //   currentNumbers.length === 15 ||
-    //   currentNumbers.length === 19
-    // ) {
-    //   setCurrentNumber((prevState) => {
-    //     return [...prevState, ', ', value]
-    //   })
-    // } else {
-    //   setCurrentNumber((prevState) => {
-    //     return [...prevState, value]
-    //   })
-    // }
   }
 
   const handleClear = () => {
+    setMath({
+      isAddition: false,
+      isSubtraction: false,
+      isMultiply: false,
+      isDivision: false,
+    })
     setCurrentNumber([0])
     setResult([0])
     setPrevNumbers(0)
   }
 
+  const handleDelete = () => {
+    let newArr = currentNumbers
+    newArr = newArr.slice(0, -1)
+    setCurrentNumber(newArr)
+  }
+
   const handleEquals = () => {
-    // setPrevNumbers((prevState) =>
-    //   prevState[0] !== 0
-    //     ? [prevState, currentNumbers, ' ', value]
-    //     : [currentNumbers, ' ', value],
-    // )
+    setPrevNumbers((prevState) => {
+      return [...prevState, currentNumbers, '=']
+    })
+    let newResult = result
+    console.log(newResult)
+    let newCurrentNumbers = currentNumbers
 
-    let newResult = result.concat()
-    let newCurrentNumbers = currentNumbers.concat()
+    // newResult.length === 1 && (newResult = result)
+    newResult.length > 1 &&
+      (newResult = newResult.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+        0,
+      ))
 
-    console.log(`NewRes: ${newResult}`)
-
-    result.length > 1
-      ? (newResult = newResult.reduce(
-          (previousValue, currentValue) => previousValue + currentValue,
-        ))
-      : setResult((prevResult) => prevResult)
-
-    // result.length === 1
-    //   ? (value1 = result)
-    //   : (value1 = result.reduce(
-    //       (previousValue, currentValue) => previousValue + currentValue,
-    //     ))
-    currentNumbers.length > 1
-      ? (newCurrentNumbers = newCurrentNumbers.reduce(
-          (previousValue, currentValue) => previousValue + currentValue,
-        ))
-      : setCurrentNumber((prevCurrentNumbers) => prevCurrentNumbers)
-    // ? (value2 = currentNumbers[0])
-    // : (value2 = currentNumbers.reduce(
-    //     (previousValue, currentValue) => previousValue + currentValue,
-    //   ))
-
-    console.log(`NewResult: ${newResult}`)
-    console.log(newCurrentNumbers)
+    // currentNumbers.length === 1 && (newCurrentNumbers = newCurrentNumbers)
+    currentNumbers.length > 1 &&
+      (newCurrentNumbers = newCurrentNumbers.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+        0,
+      ))
 
     currentMath.isAddition &&
-      setCurrentNumber(parseInt(newResult) + parseInt(newCurrentNumbers))
-    // currentMath.isAddition &&
-    //   setCurrentNumber(parseInt(newResult) + parseInt(newCurrentNumbers))
-    // handleAddition(value1, value2)
-    // currentMath.isSubtraction && handleSubtraction(value1, value2)
-    // currentMath.isMultiply && handleMultiply(value1, value2)
-    // currentMath.isDivision && handleDivision(value1, value2)
+      setCurrentNumber(parseFloat(newResult) + parseFloat(newCurrentNumbers))
+    currentMath.isSubtraction &&
+      setCurrentNumber(parseFloat(newResult) - parseFloat(newCurrentNumbers))
+    console.log(currentMath)
+    currentMath.isMultiply &&
+      setCurrentNumber(parseFloat(newResult) * parseFloat(newCurrentNumbers))
+    currentMath.isDivision &&
+      setCurrentNumber(parseFloat(newResult) / parseInt(newCurrentNumbers))
   }
 
   const handleClick = (id, value, type, e) => {
-    currentNumbers > 0 &&
-      setCurrentNumber((prevState) => {
-        return [...prevState]
-      })
     type === 'number' && handleNumber(value, e)
-    type === 'addition' && handleAddition('+')
-    type === 'equals' && handleEquals()
+    type === 'addition' && handleAddition(value)
+    type === 'minus' && handleSubtraction(value)
+    type === 'multiply' && handleMultiply(value)
+    type === 'division' && handleDivision(value)
+    type === 'percentage' && handlePercentage(value)
+    type === 'point' && handlePoint(value)
+    type === 'equals' && currentNumbers.length > 0 && handleEquals(value)
     type === 'c' && handleClear()
-
-    // if (type === 'number') {
-    //   // if (currentNumbers.length === 21) {
-    //   //   let newArr = []
-    //   //   currentNumbers.forEach((element) => {
-    //   //     newArr.unshift(element)
-    //   //   })
-    //   //   setCurrentNumber(newArr)
-    //   // } else {
-    //   //   handleNumber(value, e)
-    //   // }
-    // }
-    // // else if (type === 'addition') {
-    // //   // setResult(currentNumbers)
-    // //   // setMath((prevState) => ({
-    // //   //   ...prevState,
-    // //   //   isAddition: true,
-    // //   // }))
-    // //   // setPrevNumbers((prevState) => {
-    // //   //   if (prevState[0] !== 0) {
-    // //   //     return [prevState, currentNumbers, ' ', value, ' ']
-    // //   //   } else {
-    // //   //     return [currentNumbers, ' ', value, ' ']
-    // //   //   }
-    // //   // })
-
-    // //   setCurrentNumber([0])
-    // // }
-    // else if (type === 'minus') {
-    //   setMath((prevState) => ({
-    //     ...prevState,
-    //     isSubtraction: true,
-    //   }))
-    //   setResult(currentNumbers)
-    //   setPrevNumbers((prevState) => {
-    //     if (prevState[0] !== 0) {
-    //       return [prevState, currentNumbers, ' ', value, ' ']
-    //     } else {
-    //       return [currentNumbers, ' ', value, ' ']
-    //     }
-    //   })
-    //   setCurrentNumber([0])
-    // } else if (type === 'multiply') {
-    //   setMath((prevState) => ({
-    //     ...prevState,
-    //     isMultiply: true,
-    //   }))
-    //   setResult(currentNumbers)
-    //   setPrevNumbers((prevState) => {
-    //     if (prevState[0] !== 0) {
-    //       return [prevState, currentNumbers, value]
-    //     } else {
-    //       return [currentNumbers, value]
-    //     }
-    //   })
-    //   setCurrentNumber([0])
-    // } else if (type === 'division') {
-    //   setMath((prevState) => ({
-    //     ...prevState,
-    //     isDivision: true,
-    //   }))
-    //   setResult(currentNumbers)
-    //   setPrevNumbers((prevState) => {
-    //     if (prevState[0] !== 0) {
-    //       return [prevState, currentNumbers, value]
-    //     } else {
-    //       return [currentNumbers, value]
-    //     }
-    //   })
-    //   setCurrentNumber([0])
-    // }
-    // // else if (type === 'equals') {
-    // //   handleEquals(id, value, type)
-    // // }
-    // else if (type === 'delete') {
-    //   let newArr = currentNumbers.filter((element, index) => {
-    //     return index != currentNumbers.length - 1
-    //   })
-    //   setCurrentNumber(newArr)
-    // } else if (type === 'c') {
-    //   setCurrentNumber([0])
-    //   setResult(null)
-    //   setPrevNumbers([0])
-    // } else if (type === 'point') {
-    //   setMath((prevState) => ({
-    //     ...prevState,
-    //     hasPoint: true,
-    //   }))
-    //   handlePoint(value)
-    // } else if (type === 'percentage') {
-    //   setMath((prevState) => ({
-    //     ...prevState,
-    //     isPercentage: true,
-    //   }))
-    //   handlePercentage()
-    // } else {
-    //   console.log('asd')
-    // }
+    type === 'delete' && handleDelete()
   }
 
   const buttons = Data.map((button) => {
-    return <Button {...button} handleClick={handleClick} key={button.id} />
-
-    // if (button.type === 'equals') {
-    //   return <Button {...button} handleClick={handleEquals} />
-    // } else if (button.type === 'additon') {
-    //   return <Button {...button} handleClick={handleAddition} />
-    // } else {
-    //   return <Button {...button} handleClick={handleClick} />
-    // }
+    return (
+      <Grid item md={3}>
+        <Button {...button} handleClick={handleClick} key={button.id} />
+      </Grid>
+    )
   })
 
   return (
-    <div className="main">
-      <div className="main--content">
-        <div className="content--result">
-          <h2>{result}</h2>
-          <h2 className="prevNumbers">{prevNumbers}</h2>
-          <h1>{currentNumbers}</h1>
-        </div>
-        <div className="content--numbers">{buttons}</div>
-      </div>
-    </div>
+    <Container>
+      <Box
+        marginBottom={50}
+        display="flex"
+        justifyContent="center"
+        alignItems="flex-start"
+        sx={{
+          '& > :not(style)': {
+            width: 400,
+            height: 650,
+          },
+        }}
+      >
+        <Card>
+          <Box
+            sx={{
+              marginY: 8,
+              marginRight: 5,
+            }}
+          >
+            <Typography variant="h5" textAlign={'end'}>
+              {prevNumbers}
+            </Typography>
+            <Typography variant="h3" textAlign={'end'}>
+              {currentNumbers}
+            </Typography>
+          </Box>
+
+          <Grid
+            container
+            rowSpacing={0.5}
+            columnSpacing={0.1}
+            margin={1}
+            padding={0}
+          >
+            {buttons}
+          </Grid>
+        </Card>
+      </Box>
+    </Container>
   )
 }
 export default Main
