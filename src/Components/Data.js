@@ -1,15 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faC,
-  faDeleteLeft,
-  faX,
-  faMinus,
-  faPlus,
-  faEquals,
-  faDivide,
-  faCircleSmall,
-} from '@fortawesome/free-solid-svg-icons'
-import CircleIcon from '@mui/icons-material/Circle'
+import { faDeleteLeft, faDivide } from '@fortawesome/free-solid-svg-icons'
 
 export default [
   {

@@ -1,7 +1,7 @@
 import Main from './Components/Main'
 
 import { useState } from 'react'
-import { Box, createTheme, Stack, ThemeProvider } from '@mui/material'
+import { Box, createTheme, ThemeProvider } from '@mui/material'
 import { Navbar } from './Components/Navbar'
 import { grey } from '@mui/material/colors'
 import { Footer } from './Components/Footer'

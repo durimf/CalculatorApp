@@ -1,23 +1,14 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Menu from '@mui/material/Menu'
-import MenuIcon from '@mui/icons-material/Menu'
-import Container from '@mui/material/Container'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
-import MenuItem from '@mui/material/MenuItem'
-import AdbIcon from '@mui/icons-material/Adb'
 import darkLogo from '../images/logo-white.png'
 import lightLogo from '../images/logo-black.png'
-import { Stack } from '@mui/system'
-import { Icon, Link, List, ListItem } from '@mui/material'
+import { Link } from '@mui/material'
 import {
-  Block,
   DarkModeOutlined,
   GitHub,
   LightMode,
@@ -25,12 +16,8 @@ import {
   Twitter,
 } from '@mui/icons-material'
 import styled from '@emotion/styled'
-import { green, red } from '@mui/material/colors'
 
 export const Navbar = ({ mode, setMode }) => {
-  const [open, setOpen] = useState(false)
-  const pages = ['Home', 'Tech Stack', 'Projects', 'Contact']
-
   const StyledToolbar = styled(Toolbar)({
     display: 'flex',
     justifyContent: 'space-around',

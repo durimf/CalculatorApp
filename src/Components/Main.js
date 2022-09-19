@@ -1,6 +1,6 @@
-import { Card, Grid, Paper, TextField, Typography } from '@mui/material'
+import { Card, Grid, Typography } from '@mui/material'
 import { Box, Container } from '@mui/system'
-import { React, useState, useEffect } from 'react'
+import { React, useState } from 'react'
 import Button from '../Components/Button'
 import Data from './Data'
 

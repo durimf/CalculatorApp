@@ -2,8 +2,6 @@ import * as React from 'react'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import BackspaceOutlinedIcon from '@mui/icons-material/BackspaceOutlined'
-import { grey } from '@mui/material/colors'
 
 export default function Buttons(props) {
   const buttons = () => {
