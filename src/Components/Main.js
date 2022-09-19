@@ -166,7 +166,7 @@ function Main(props) {
 
   const buttons = Data.map((button) => {
     return (
-      <Grid item md={3}>
+      <Grid item md={3} xs={3} sm={3}>
         <Button {...button} handleClick={handleClick} key={button.id} />
       </Grid>
     )
@@ -181,8 +181,15 @@ function Main(props) {
         alignItems="flex-start"
         sx={{
           '& > :not(style)': {
-            width: 400,
-            height: 650,
+            height: {
+              xs: 560,
+              sm: 580,
+              md: 660,
+            },
+            width: {
+              sm: 400,
+              md: 500,
+            },
           },
         }}
       >
@@ -203,10 +210,16 @@ function Main(props) {
 
           <Grid
             container
-            rowSpacing={0.5}
-            columnSpacing={0.1}
-            margin={1}
+            rowSpacing={0.8}
+            columnSpacing={0.4}
             padding={0}
+            sx={{
+              margin: {
+                xs: 1.2,
+                sm: 2,
+                md: 2.2,
+              },
+            }}
           >
             {buttons}
           </Grid>

@@ -15,10 +15,27 @@ export default function Buttons(props) {
           size="large"
           sx={{
             fontSize: 22,
-            minHeight: 80,
-            maxHeight: 80,
-            minWidth: 83,
-            maxWidth: 83,
+            minHeight: {
+              xs: 60,
+              sm: 65,
+              md: 80,
+            },
+            maxHeight: {
+              xs: 60,
+              sm: 65,
+              md: 80,
+            },
+            minWidth: {
+              xs: 63,
+              sm: 68,
+              md: 83,
+            },
+            maxWidth: {
+              xs: 63,
+              sm: 68,
+              md: 83,
+            },
+
             color: 'text.primary',
             backgroundColor: 'background.default',
             '&:hover': {
@@ -39,10 +56,27 @@ export default function Buttons(props) {
           variant="contained"
           sx={{
             fontSize: 22,
-            minHeight: 81,
-            maxHeight: 81,
-            minWidth: 284,
-            maxWidth: 284,
+            minHeight: {
+              xs: 60,
+              sm: 65,
+              md: 81,
+            },
+            maxHeight: {
+              xs: 60,
+              sm: 65,
+              md: 81,
+            },
+            minWidth: {
+              xs: 233,
+              sm: 268,
+              md: 334,
+            },
+            maxWidth: {
+              xs: 233,
+              sm: 268,
+              md: 334,
+            },
+
             color: 'text.primary',
             backgroundColor: 'background.default',
             '&:hover': {
@@ -63,10 +97,26 @@ export default function Buttons(props) {
           variant="outlined"
           sx={{
             fontSize: 22,
-            minHeight: 80,
-            maxHeight: 80,
-            minWidth: 83,
-            maxWidth: 83,
+            minHeight: {
+              xs: 60,
+              sm: 65,
+              md: 80,
+            },
+            maxHeight: {
+              xs: 60,
+              sm: 65,
+              md: 80,
+            },
+            minWidth: {
+              xs: 63,
+              sm: 68,
+              md: 83,
+            },
+            maxWidth: {
+              xs: 63,
+              sm: 68,
+              md: 83,
+            },
             color: 'background.default',
             backgroundColor: 'text.primary',
             '&:hover': {
