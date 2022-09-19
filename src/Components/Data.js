@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDeleteLeft, faDivide } from '@fortawesome/free-solid-svg-icons'
 
-export default [
+const Data = [
   {
     id: 1,
     type: 'c',
@@ -100,3 +100,5 @@ export default [
     value: '=',
   },
 ]
+
+export default Data
