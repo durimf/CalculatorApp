@@ -47,7 +47,7 @@ export const Navbar = ({ mode, setMode }) => {
         </Box>
 
         {/* Container md display */}
-        <Box sx={{ m: 2, display: { xs: 'none', md: 'flex' } }}>
+        <Box sx={{ m: 2, display: 'flex' }}>
           <Button
             target="_blank"
             rel="noreferrer"
@@ -72,7 +72,6 @@ export const Navbar = ({ mode, setMode }) => {
           >
             <Twitter />
           </Button>
-
           {/* Start of toggle lights box */}
           <Box>
             {mode === 'dark' ? (
